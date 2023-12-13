@@ -47,6 +47,8 @@ int	ft_printf(const char *str, ...)
 	va_start(args, str);
 	while (str[i] != '\0')
 	{
+		if (str[i] == '%' && str[i + 1] == '\0')
+			return (count);
 		if (str[i] == '%')
 			count += print(str[++i], args);
 		else
